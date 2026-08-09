@@ -28,29 +28,29 @@ pip install -r requirements.txt
 
 ```bash
 # Enumeración completa (DNS + crt.sh, sin vHost)
-python3 subenum.py fireflow.htb
+python3 subenum.py target.htb
 
 # Enumeración completa con vHost (requiere IP)
-python3 subenum.py fireflow.htb --ip 10.129.44.248
+python3 subenum.py target.htb --ip 10.129.44.248
 
 # vHost en puerto 443
-python3 subenum.py fireflow.htb --ip 10.129.44.248 --port 443
+python3 subenum.py target.htb --ip 10.129.44.248 --port 443
 
 # Wordlist personalizada
-python3 subenum.py fireflow.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+python3 subenum.py target.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt
 
 # Solo vHost, exportando resultados
-python3 subenum.py fireflow.htb --ip 10.129.44.248 --no-dns --no-crtsh -o resultados.txt
+python3 subenum.py target.htb --ip 10.129.44.248 --no-dns --no-crtsh -o resultados.txt
 
 # Más hilos para mayor velocidad
-python3 subenum.py fireflow.htb --ip 10.129.44.248 -t 100
+python3 subenum.py target.htb --ip 10.129.44.248 -t 100
 ```
 
 ### Flags
 
 | Flag | Descripción |
 |------|-------------|
-| `domain` | Dominio objetivo (ej: `fireflow.htb`) |
+| `domain` | Dominio objetivo (ej: `target.htb`) |
 | `-w, --wordlist` | Ruta a la wordlist. Por defecto: SecLists `subdomains-top1million-5000.txt` |
 | `--ip` | IP del objetivo para vHost enumeration |
 | `--port` | Puerto para vHost (default: `80`) |
@@ -81,16 +81,16 @@ Si no se encuentra, utiliza una wordlist interna con los subdominios más comune
   🌐 SubEnum
   Enumerador de subdominios y vHosts · v1.0
 
-  Dominio:  fireflow.htb
+  Dominio:  target.htb
   Hilos:    50
   Timeout:  3s
   IP:       10.129.44.248:80
 
 ──────────── DNS Bruteforce ────────────
-  ✓ www.fireflow.htb → 10.129.44.248
+  ✓ www.target.htb → 10.129.44.248
 
 ──────────── vHost Enumeration ────────────
-  ✓ flow.fireflow.htb → 200 (4821 bytes)
+  ✓ sub.target.htb → 200 (4821 bytes)
 
 ──────────── crt.sh ────────────
   (sin resultados para dominios .htb locales)
